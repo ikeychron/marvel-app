@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "pbs.twimg.com",
       },
+      {
+        protocol: "http",
+        hostname: "i.annihil.us",
+      },
     ],
   },
 };

@@ -1,10 +1,25 @@
+import { useState } from "react";
 import Image from "next/image";
 import CardInfoCharacter from "@/components/Atoms/CardInfoCharacter";
 import ProgressMovies from "@/components/Organisms/ProgressMovies";
 import CardCharacter from "@/components/Organisms/CardCharacter";
 import Pagination from "@/components/Molecules/Pagination";
+import { getCharacters } from "@/data/interfaceAPI";
 
-export default function CharactersPage() {
+async function getData() {
+  try {
+    const data = await getCharacters();
+    return data;
+  } catch (error: any) {
+    throw Error(error?.status || "Failed to fetch data");
+  }
+}
+
+export default async function CharactersPage() {
+  const data = await getData();
+  const currentpage = Math.floor(data.offset / data.limit) + 1;
+  const totalPages = Math.ceil(data.total / data.limit);
+
   const countMovies = 8;
 
   return (
@@ -38,14 +53,12 @@ export default function CharactersPage() {
       </div>
 
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-        <CardCharacter />
-        <CardCharacter />
-        <CardCharacter />
-        <CardCharacter />
-        <CardCharacter />
+        {data.results.map((character) => (
+          <CardCharacter character={character} key={character.id} />
+        ))}
       </div>
 
-      <Pagination />
+      <Pagination currentPage={currentpage} totalPages={totalPages} />
     </>
   );
 }
