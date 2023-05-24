@@ -1,0 +1,39 @@
+/* Beaufort-for-lol-300 */
+@font-face {
+  font-display: swap;
+  font-family: "BeaufortForLOL";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/beaufort-for-lol/BeaufortforLOL-Light.ttf")
+    format("truetype");
+}
+
+/* Beaufort-for-lol-400 */
+@font-face {
+  font-display: swap;
+  font-family: "BeaufortForLOL";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/beaufort-for-lol/BeaufortforLOL-Regular.ttf")
+    format("truetype");
+}
+
+/* Beaufort-for-lol-500 */
+@font-face {
+  font-display: swap;
+  font-family: "BeaufortForLOL";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/beaufort-for-lol/BeaufortforLOL-Medium.ttf")
+    format("truetype");
+}
+
+/* Beaufort-for-lol-700 */
+@font-face {
+  font-display: swap;
+  font-family: "BeaufortForLOL";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/beaufort-for-lol/BeaufortforLOL-Bold.ttf") format("truetype");
+}
+
