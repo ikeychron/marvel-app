@@ -37,3 +37,12 @@
   src: url("/fonts/beaufort-for-lol/BeaufortforLOL-Bold.ttf") format("truetype");
 }
 
+/* Spiegel-400 */
+@font-face {
+  font-display: swap;
+  font-family: "Spiegel";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/spiegel/Spiegel.ttf") format("truetype");
+}
+

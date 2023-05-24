@@ -3,7 +3,7 @@ const CardInfoCharacter: React.FC<
 > = ({ children, className, ...rest }) => {
   return (
     <section
-      className={`bg-[#111111] border border-[#42331A] rounded flex flex-col items-center justify-center ${
+      className={`bg-[#111111] border border-cardInfoCharacter rounded flex flex-col items-center justify-center ${
         className ? className : ""
       }`}
       {...rest}

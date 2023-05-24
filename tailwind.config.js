@@ -7,14 +7,30 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        "beaufort-for-lol": '"BeauforForLol", sans-serif',
+        spiegel: '"Spiegel", sans-serif',
+      },
       colors: {
         "golden-1": "#F0E6D2",
         "golden-3": "#C89B3C",
         "blue-progress": "#1DA5B4",
       },
+      borderColor: {
+        cardInfoCharacter: "#42331A",
+        cardCharacter: "#3C3C41",
+      },
       backgroundImage: {
+        /* Images */
         background:
           'url("/images/background.png"), radial-gradient(82.53% 82.53% at 50% 91.99%, #19488F 44.09%, #000000 100%)',
+        cardCharacter:
+          'url("/images/background-card-character.png"), linear-gradient(360deg, #090C14 0%, #171A20 36.49%, #272C34 114.84%)',
+        cardCharacterHover:
+          'url("/images/background-card-character.png"), linear-gradient(360deg, #121722 0%, #232a38 36.49%, #272C34 114.84%)',
+        /* Gradients */
+        avatarCharacter:
+          "linear-gradient(360deg, #000000 0%, #090C14 0.01%, rgba(23, 26, 32, 0) 36.49%, rgba(39, 44, 52, 0) 114.84%)",
         gradientNavLink:
           "linear-gradient(0deg, #231F20 0%, rgba(34, 34, 34, 0) 100%)",
         linesProgressMovies:
@@ -31,7 +47,7 @@ module.exports = {
           "0px 0px 4px #FFA942, 0px 0px 4px rgba(255, 169, 66, 0.25), 0px 0px 7px rgba(255, 169, 66, 0.25)",
       },
       backgroundSize: {
-        gradientProgressMovies: "100%, 100% 25%",
+        gradientProgressMovies: "100%, 75% 25%",
       },
     },
   },
