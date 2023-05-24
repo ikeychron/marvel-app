@@ -21,7 +21,7 @@ const NavLink: React.FC<INavlink> = ({
   return (
     <Link
       href={href}
-      className={`relative font-medium h-full w-[7.125rem] flex items-center justify-center uppercase tracking-[2px] text-sm ${
+      className={`relative font-medium h-full w-20 sm:w-[7.125rem] flex items-center justify-center uppercase tracking-[2px] text-[0.625rem] sm:text-sm ${
         active ? "bg-gradientNavLink text-golden-3" : "text-golden-1"
       } ${className ? className : ""}`}
       {...rest}

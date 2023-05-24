@@ -43,6 +43,15 @@
   font-family: "Spiegel";
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/spiegel/Spiegel.ttf") format("truetype");
+  src: url("/fonts/spiegel/Spiegel-Regular.ttf") format("truetype");
+}
+
+/* Spiegel-500 */
+@font-face {
+  font-display: swap;
+  font-family: "Spiegel";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/spiegel/Spiegel-Medium.otf") format("truetype");
 }
 

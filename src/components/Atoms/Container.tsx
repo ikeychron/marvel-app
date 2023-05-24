@@ -3,7 +3,9 @@ const Container: React.FC<
 > = ({ children, className, ...rest }) => {
   return (
     <div
-      className={`px-[3.875rem] w-full mx-auto ${className ? className : ""}`}
+      className={`px-4 sm:px-[3.875rem] w-full mx-auto ${
+        className ? className : ""
+      }`}
       {...rest}
     >
       {children}

@@ -24,8 +24,9 @@ const Navbar = () => {
     >
       <Container className="flex justify-between h-[7.25rem]">
         <div className="flex items-center">
-          <Link href="/" className="mr-5">
+          <Link href="/" className="mr-4 sm:mr-5">
             <Image
+              className="w-20 sm:w-32"
               src="/images/logo-marvel.png"
               alt="Marvel logo"
               width={130}
@@ -43,7 +44,7 @@ const Navbar = () => {
           {navIcons.map((item) => (
             <button
               key={item.name}
-              className="rounded-full bg-transparent p-2 hover:bg-[#333333] transition-colors mr-2 last:mr-0"
+              className="rounded-full bg-transparent p-2 hover:bg-[#333333] transition-colors mr-1 sm:mr-2 last:mr-0"
             >
               <Image
                 src={`/svgs/${item.name}.svg`}

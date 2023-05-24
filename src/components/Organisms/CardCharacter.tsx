@@ -3,7 +3,7 @@ import MiniCardInfo from "../Atoms/MiniCardInfo";
 
 const CardCharacter = () => {
   return (
-    <div className="bg-cardCharacter hover:bg-cardCharacterHover border-cardInfoCharacter rounded h-full w-full flex flex-col py-8 cursor-pointer group">
+    <div className="bg-cardCharacter hover:bg-cardCharacterHover border-cardInfoCharacter rounded w-full flex flex-col py-8 cursor-pointer group">
       <div className="flex items-center justify-between px-8">
         <Image
           src="/svgs/card-character-top.svg"
