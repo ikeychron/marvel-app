@@ -36,9 +36,9 @@ export default async function CharactersPage() {
             allowFullScreen
           />
         </CardInfoCharacter>
-        <CardInfoCharacter className="relative">
+        <CardInfoCharacter className="relative overflow-hidden">
           <Image
-            className="rounded brightness-200 object-cover"
+            className="hover:scale-110 hover:brightness-[3.5] transition-all rounded brightness-[3] object-cover"
             src="https://pbs.twimg.com/media/FtrZy57XsAIDofO?format=jpg&name=4096x4096"
             alt="Tobey, Andrew and Tom as Spidermans image"
             fill

@@ -11,7 +11,7 @@ const Menu = ({ handleClose }: { handleClose: () => void }) => {
         href={smsWhatsapp}
         onClick={handleClose}
         target="_blank"
-        className="text-golden-1 hover:text-golden-3 w-full py-3 px-4 text-left z-[11]"
+        className="text-golden-1 font-spiegel hover:text-golden-3 w-full py-3 px-4 text-left z-[11]"
       >
         No olvides mandar un mensaje para contratar a Carlos Barrios. 📱
       </a>
