@@ -1,4 +1,4 @@
-import { Character } from "@/interfaces/api";
+import { Character } from "@/interfaces/api-characters";
 import Image from "next/image";
 
 const PrintData = ({
