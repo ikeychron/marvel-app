@@ -10,6 +10,10 @@ const nextConfig = {
         protocol: "http",
         hostname: "i.annihil.us",
       },
+      {
+        protocol: "https",
+        hostname: "image.tmdb.org",
+      },
     ],
   },
 };

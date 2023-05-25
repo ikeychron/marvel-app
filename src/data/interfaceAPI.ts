@@ -1,4 +1,5 @@
-import { Data, IResMarvel } from "@/interfaces/api";
+import { Data, IResComics } from "@/interfaces/api-characters";
+import { IDataMovies } from "@/interfaces/api-movies";
 import md5 from "md5";
 const limitCharacters = 5;
 
@@ -23,8 +24,7 @@ export const getCharactersServer = async (): Promise<Data> => {
     hash;
 
   const res = await fetch(apiUrl, { signal: abortController.signal });
-  const { data }: IResMarvel = await res.json();
-
+  const { data }: IResComics = await res.json();
   return data;
 };
 export const getCharacters = async (offset?: number): Promise<Data> => {
@@ -35,15 +35,14 @@ export const getCharacters = async (offset?: number): Promise<Data> => {
   }&apikey=${process.env.NEXT_PUBLIC_MARVEL_PUBLIC_API_KEY}`;
 
   const res = await fetch(apiUrl, { signal: abortController.signal });
-  const { data }: IResMarvel = await res.json();
-
+  const { data }: IResComics = await res.json();
   return data;
 };
 
-export const getMovies = async (): Promise<Data> => {
+export const getMovies = async (): Promise<IDataMovies> => {
   const abortController = new AbortController();
 
-  const api = `https://api.themoviedb.org/3/discover/movie?with_companies=420&sort_by=release_date.desc&language=en-US&api_key=${process.env.TMDMOVIE_API_KEY}`;
+  const api = `https://api.themoviedb.org/3/discover/movie?&with_companies=420&sort_by=release_date.desc&language=es-MX&api_key=${process.env.TMDMOVIE_API_KEY}`;
 
   const res = await fetch(api, { signal: abortController.signal });
   const data = await res.json();

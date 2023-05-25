@@ -1,4 +1,4 @@
-export interface IResMarvel {
+export interface IResComics {
   code: number;
   status: string;
   copyright: string;

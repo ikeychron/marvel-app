@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import CardCharacter from "@/components/Organisms/CardCharacter";
 import Pagination from "@/components/Molecules/Pagination";
 import { CharactersContext } from "@/contexts/CharactersContext";
-import { Character, Data } from "@/interfaces/api";
+import { Character, Data } from "@/interfaces/api-characters";
 import ModalCharacter from "../Organisms/ModalCharacter";
 
 const ListCharacters = ({ data }: { data: Data }) => {

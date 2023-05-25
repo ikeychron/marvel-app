@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useState, ReactNode } from "react";
-import { Character, Data } from "@/interfaces/api";
+import { Character, Data } from "@/interfaces/api-characters";
 import { getCharacters } from "@/data/interfaceAPI";
 
 interface ICharactersContext {

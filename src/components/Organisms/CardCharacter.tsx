@@ -1,6 +1,6 @@
 import Image from "next/image";
-import MiniCardInfo from "../Atoms/MiniCardInfo";
-import { Character } from "../../interfaces/api";
+import MiniCardInfo from "@/components/Atoms/MiniCardInfo";
+import { Character } from "@/interfaces/api-characters";
 
 const CardCharacter = ({
   character,
