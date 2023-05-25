@@ -1,22 +1,32 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import NavLink from "@/components/Atoms/NavLink";
 import Container from "@/components/Atoms/Container";
+import Menu from "@/components/Molecules/Menu";
 
 const nav = [
   { title: "Inicio", href: "/" },
   { title: "Personajes", href: "/personajes" },
 ];
 
-const navIcons = [
-  {
-    name: "notification",
-    alt: "Notification icon",
-  },
-  { name: "setting", alt: "Setting icon" },
-];
-
 const Navbar = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const navIcons = [
+    {
+      name: "notification",
+      alt: "Notification icon",
+      onClick: () => setOpenMenu(!openMenu),
+    },
+    {
+      name: "setting",
+      alt: "Setting icon",
+      onClick: () => setOpenMenu(!openMenu),
+    },
+  ];
+
   return (
     <nav
       data-cy="navbar"
@@ -40,11 +50,12 @@ const Navbar = () => {
             </NavLink>
           ))}
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center relative gap-1 sm:gap-2">
           {navIcons.map((item) => (
             <button
               key={item.name}
-              className="rounded-full bg-transparent p-2 hover:bg-[#333333] transition-colors mr-1 sm:mr-2 last:mr-0"
+              className="rounded-full bg-transparent p-2 hover:bg-[#333333] transition-colors"
+              onClick={item.onClick}
             >
               <Image
                 src={`/svgs/${item.name}.svg`}
@@ -54,6 +65,7 @@ const Navbar = () => {
               />
             </button>
           ))}
+          {openMenu && <Menu handleClose={() => setOpenMenu(false)} />}
         </div>
       </Container>
     </nav>

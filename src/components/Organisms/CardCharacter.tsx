@@ -5,12 +5,17 @@ import { Character } from "../../interfaces/api";
 const CardCharacter = ({
   character,
   loading,
+  onClick,
 }: {
   character: Character;
   loading: boolean;
+  onClick: () => void;
 }) => {
   return (
-    <div className="bg-cardCharacter hover:bg-cardCharacterHover border-cardInfoCharacter rounded w-full flex flex-col justify-between py-8 cursor-pointer group h-[28rem]">
+    <div
+      className="bg-cardCharacter hover:bg-cardCharacterHover border-cardInfoCharacter rounded w-full flex flex-col justify-between py-8 cursor-pointer group h-[28rem]"
+      onClick={onClick}
+    >
       <div className="flex items-center justify-between px-8">
         <Image
           src="/svgs/card-character-top.svg"
@@ -47,7 +52,7 @@ const CardCharacter = ({
               height={125}
               src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
               alt={`${character.name} image`}
-              className="h-[7.75rem] w-[7.75rem] rounded-full object-cover brightness-200 group-hover:scale-125 transition-transform"
+              className="h-[7.75rem] w-[7.75rem] rounded-full object-cover group-hover:brightness-125  group-hover:scale-110 transition-all"
               onError={(e) => {
                 // This code its if src image failed, some images are not available
                 (e.target as any).src =

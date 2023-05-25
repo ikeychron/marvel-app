@@ -1,10 +1,5 @@
 import TextProgressMovies from "@/components/Molecules/TextProgressMovies";
-
-function getRandomInt(min: number, max: number) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
+import getRandomInt from "@/utils/getRandomInt";
 
 const ProgressMovies = () => {
   const randomGoalMovies = getRandomInt(0, 200);
