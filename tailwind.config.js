@@ -49,6 +49,9 @@ module.exports = {
       backgroundSize: {
         gradientProgressMovies: "100%, 75% 25%",
       },
+      animation: {
+        "spin-slow": "spin 2.5s linear infinite",
+      },
     },
   },
   plugins: [],

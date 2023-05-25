@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import Navbar from "@/components/Organisms/Navbar";
 import Container from "@/components/Atoms/Container";
+import { CharactersProvider } from "@/contexts/CharactersContext";
 
 export const metadata = {
   title: "Marvel App",
@@ -17,7 +18,9 @@ export default function RootLayout({
       <body>
         <main className="min-h-screen pb-8 bg-background bg-blend-multiply">
           <Navbar />
-          <Container className="mt-[2.375rem]">{children}</Container>
+          <CharactersProvider>
+            <Container className="mt-[2.375rem]">{children}</Container>
+          </CharactersProvider>
         </main>
       </body>
     </html>

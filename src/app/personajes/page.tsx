@@ -1,14 +1,12 @@
-import { useState } from "react";
 import Image from "next/image";
 import CardInfoCharacter from "@/components/Atoms/CardInfoCharacter";
 import ProgressMovies from "@/components/Organisms/ProgressMovies";
-import CardCharacter from "@/components/Organisms/CardCharacter";
-import Pagination from "@/components/Molecules/Pagination";
-import { getCharacters } from "@/data/interfaceAPI";
+import { getCharactersServer } from "@/data/interfaceAPI";
+import ListCharacters from "@/components/Templates/ListCharacters";
 
 async function getData() {
   try {
-    const data = await getCharacters();
+    const data = await getCharactersServer();
     return data;
   } catch (error: any) {
     throw Error(error?.status || "Failed to fetch data");
@@ -17,10 +15,6 @@ async function getData() {
 
 export default async function CharactersPage() {
   const data = await getData();
-  const currentpage = Math.floor(data.offset / data.limit) + 1;
-  const totalPages = Math.ceil(data.total / data.limit);
-
-  const countMovies = 8;
 
   return (
     <>
@@ -31,7 +25,7 @@ export default async function CharactersPage() {
             PROGRESO DE PELICULAS PRODUCIDAS
           </h1>
 
-          <ProgressMovies countMovies={countMovies} />
+          <ProgressMovies />
         </CardInfoCharacter>
         <CardInfoCharacter>
           <iframe
@@ -52,13 +46,7 @@ export default async function CharactersPage() {
         </CardInfoCharacter>
       </div>
 
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-        {data.results.map((character) => (
-          <CardCharacter character={character} key={character.id} />
-        ))}
-      </div>
-
-      <Pagination currentPage={currentpage} totalPages={totalPages} />
+      <ListCharacters data={data} />
     </>
   );
 }

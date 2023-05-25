@@ -2,7 +2,13 @@ import Image from "next/image";
 import MiniCardInfo from "../Atoms/MiniCardInfo";
 import { Character } from "../../interfaces/api";
 
-const CardCharacter = ({ character }: { character: Character }) => {
+const CardCharacter = ({
+  character,
+  loading,
+}: {
+  character: Character;
+  loading: boolean;
+}) => {
   return (
     <div className="bg-cardCharacter hover:bg-cardCharacterHover border-cardInfoCharacter rounded w-full flex flex-col justify-between py-8 cursor-pointer group h-[28rem]">
       <div className="flex items-center justify-between px-8">
@@ -13,7 +19,7 @@ const CardCharacter = ({ character }: { character: Character }) => {
           height={16}
         />
         <h6 className="text-golden-1 line-clamp-2 text-sm font-medium text-center uppercase tracking-wide">
-          {character.name}
+          {!loading ? character.name : "Cargando personaje"}
         </h6>
         <Image
           src="/svgs/card-character-top.svg"
@@ -30,21 +36,39 @@ const CardCharacter = ({ character }: { character: Character }) => {
           alt="Decoration circle for character's avatar"
           width={300}
           height={300}
-          className="w-[9.688rem] -scale-x-100 absolute -top-[1.875rem] group-hover:rotate-45 transition-transform"
+          className={`w-[9.688rem] absolute -top-[1.875rem] group-hover:rotate-45 transition-transform ${
+            loading ? "animate-spin-slow" : ""
+          }`}
         />
         <div className="h-[7.75rem] w-[7.75rem] bg-avatarCharacter rounded-full  overflow-hidden">
-          <Image
-            width={720}
-            height={720}
-            src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-            alt={`${character.name} image`}
-            className="h-[7.75rem] w-[7.75rem] rounded-full object-cover brightness-200 group-hover:scale-125 transition-transform"
-          />
+          {!loading && (
+            <Image
+              width={125}
+              height={125}
+              src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+              alt={`${character.name} image`}
+              className="h-[7.75rem] w-[7.75rem] rounded-full object-cover brightness-200 group-hover:scale-125 transition-transform"
+              onError={(e) => {
+                // This code its if src image failed, some images are not available
+                (e.target as any).src =
+                  "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg";
+              }}
+            />
+          )}
         </div>
       </div>
+
       <div className="w-full flex flex-col items-center gap-5">
-        <MiniCardInfo title="Cómics" count={character.comics.available} />
-        <MiniCardInfo title="Películas" count={character.series.available} />
+        <MiniCardInfo
+          title="Cómics"
+          count={character.comics.available}
+          loading={loading}
+        />
+        <MiniCardInfo
+          title="Películas"
+          count={character.series.available}
+          loading={loading}
+        />
       </div>
     </div>
   );

@@ -1,10 +1,11 @@
 import { Data, IResMarvel } from "@/interfaces/api";
 import md5 from "md5";
+const limitCharacters = 5;
 
-export const getCharacters = async (): Promise<Data> => {
+export const getCharactersServer = async (): Promise<Data> => {
   const abortController = new AbortController();
 
-  const api = "http://gateway.marvel.com/v1/public/characters?limit=5&ts=";
+  const api = "http://gateway.marvel.com/v1/public/characters?ts=";
   const timestamp = new Date().toISOString();
   const hash = md5(
     timestamp +
@@ -14,6 +15,8 @@ export const getCharacters = async (): Promise<Data> => {
   const apiUrl =
     api +
     timestamp +
+    "&limit=" +
+    limitCharacters +
     "&apikey=" +
     process.env.NEXT_PUBLIC_MARVEL_PUBLIC_API_KEY +
     "&hash=" +
@@ -22,6 +25,28 @@ export const getCharacters = async (): Promise<Data> => {
   const res = await fetch(apiUrl, { signal: abortController.signal });
   const { data }: IResMarvel = await res.json();
 
+  return data;
+};
+export const getCharacters = async (offset?: number): Promise<Data> => {
+  const abortController = new AbortController();
+
+  const apiUrl = `http://gateway.marvel.com/v1/public/characters?limit=${limitCharacters}&offset=${
+    offset || 0
+  }&apikey=${process.env.NEXT_PUBLIC_MARVEL_PUBLIC_API_KEY}`;
+
+  const res = await fetch(apiUrl, { signal: abortController.signal });
+  const { data }: IResMarvel = await res.json();
+
+  return data;
+};
+
+export const getMovies = async (): Promise<Data> => {
+  const abortController = new AbortController();
+
+  const api = `https://api.themoviedb.org/3/discover/movie?with_companies=420&sort_by=release_date.desc&language=en-US&api_key=${process.env.TMDMOVIE_API_KEY}`;
+
+  const res = await fetch(api, { signal: abortController.signal });
+  const data = await res.json();
   return data;
 };
 
