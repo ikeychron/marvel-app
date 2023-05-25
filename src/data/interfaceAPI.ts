@@ -30,7 +30,7 @@ export const getCharactersServer = async (): Promise<Data> => {
 export const getCharacters = async (offset?: number): Promise<Data> => {
   const abortController = new AbortController();
 
-  const apiUrl = `http://gateway.marvel.com/v1/public/characters?limit=${limitCharacters}&offset=${
+  const apiUrl = `https://gateway.marvel.com/v1/public/characters?limit=${limitCharacters}&offset=${
     offset || 0
   }&apikey=${process.env.NEXT_PUBLIC_MARVEL_PUBLIC_API_KEY}`;
 
