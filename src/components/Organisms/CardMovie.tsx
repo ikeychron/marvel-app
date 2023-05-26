@@ -49,7 +49,7 @@ const CardMovie = ({ movie }: { movie: Movie }) => {
 
       <div className="my-4 w-full items-end flex flex-col">
         <h1
-          className="text-golden-1 text-sm font-medium"
+          className="text-golden-1 text-sm font-medium text-right"
           data-cy="card-movie-name"
         >
           {movie.title}
