@@ -7,8 +7,8 @@ import Container from "@/components/Atoms/Container";
 import Menu from "@/components/Molecules/Menu";
 
 const nav = [
-  { title: "Inicio", href: "/" },
-  { title: "Personajes", href: "/personajes" },
+  { title: "Inicio", href: "/", dataCy: "nav-home" },
+  { title: "Personajes", href: "/personajes", dataCy: "nav-characters" },
 ];
 
 const Navbar = () => {
@@ -19,11 +19,13 @@ const Navbar = () => {
       name: "notification",
       alt: "Notification icon",
       onClick: () => setOpenMenu(!openMenu),
+      dataCy: "nav-notification",
     },
     {
       name: "setting",
       alt: "Setting icon",
       onClick: () => setOpenMenu(!openMenu),
+      dataCy: "nav-setting",
     },
   ];
 
@@ -41,11 +43,12 @@ const Navbar = () => {
               alt="Marvel logo"
               width={130}
               height={50}
+              data-cy="nav-logo"
             />
           </Link>
 
           {nav.map((item) => (
-            <NavLink href={item.href} key={item.href}>
+            <NavLink href={item.href} key={item.href} data-cy={item.dataCy}>
               {item.title}
             </NavLink>
           ))}
@@ -56,6 +59,7 @@ const Navbar = () => {
               key={item.name}
               className="rounded-full bg-transparent p-2 hover:bg-[#333333] transition-colors"
               onClick={item.onClick}
+              data-cy={item.dataCy}
             >
               <Image
                 src={`/svgs/${item.name}.svg`}

@@ -1,9 +1,13 @@
 interface ITextProgressMovies {
   isProductionGoal: boolean;
+  countMovie: number;
+  "data-cy": string;
 }
 
 const TextProgressMovies: React.FC<ITextProgressMovies> = ({
   isProductionGoal,
+  countMovie,
+  "data-cy": dataCy,
 }) => {
   return (
     <div
@@ -23,7 +27,9 @@ const TextProgressMovies: React.FC<ITextProgressMovies> = ({
               : "-top-2 border-blue-progress"
           }`}
         />
-        <p>XX Películas</p>
+        <p>
+          <span data-cy={dataCy}>{countMovie}</span> Películas
+        </p>
         <p>{isProductionGoal ? "Meta de Producción" : "Producidas"}</p>
       </div>
     </div>

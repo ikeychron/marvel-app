@@ -19,6 +19,7 @@ const Arrow = ({
 }) => {
   return (
     <button
+      data-cy={isNext ? "pagination-btn-next" : "pagination-btn-previous"}
       className="bg-golden-3 rounded-full flex justify-center items-center w-[2.125rem] h-[2.125rem] disabled:bg-gray-500"
       onClick={onClick}
       disabled={disabled}
@@ -45,7 +46,10 @@ const Pagination: React.FC<IPagination> = ({
     <div className="w-full flex justify-center mt-7">
       <div className="flex items-center">
         <Arrow onClick={onPrevious} disabled={loading || currentPage === 1} />
-        <p className="mx-5 text-golden-3 text-xl font-medium font-spiegel">
+        <p
+          data-cy="pagination-text"
+          className="mx-5 text-golden-3 text-xl font-medium font-spiegel"
+        >
           {currentPage} / {totalPages}
         </p>
         <Arrow

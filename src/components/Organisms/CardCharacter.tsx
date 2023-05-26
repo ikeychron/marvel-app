@@ -13,6 +13,7 @@ const CardCharacter = ({
 }) => {
   return (
     <div
+      data-cy="card-character"
       className="bg-cardCharacter hover:bg-cardCharacterHover border-cardInfoCharacter rounded w-full flex flex-col justify-between py-8 cursor-pointer group h-[28rem]"
       onClick={onClick}
     >
@@ -23,7 +24,10 @@ const CardCharacter = ({
           width={28}
           height={16}
         />
-        <h6 className="text-golden-1 line-clamp-2 text-sm font-medium text-center uppercase tracking-wide">
+        <h6
+          data-cy="card-character-name"
+          className="text-golden-1 line-clamp-2 text-sm font-medium text-center uppercase tracking-wide"
+        >
           {!loading ? character.name : "Cargando personaje"}
         </h6>
         <Image
@@ -37,6 +41,7 @@ const CardCharacter = ({
 
       <div className="flex justify-center relative">
         <Image
+          data-cy="card-character-decoration-image"
           src="/svgs/circle-avatar.svg"
           alt="Decoration circle for character's avatar"
           width={300}
@@ -48,16 +53,12 @@ const CardCharacter = ({
         <div className="h-[7.75rem] w-[7.75rem] bg-avatarCharacter rounded-full  overflow-hidden">
           {!loading && (
             <Image
+              data-cy="card-character-image"
               width={125}
               height={125}
               src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
               alt={`${character.name} image`}
               className="h-[7.75rem] w-[7.75rem] rounded-full object-cover group-hover:brightness-125  group-hover:scale-110 transition-all"
-              onError={(e) => {
-                // This code its if src image failed, some images are not available
-                (e.target as any).src =
-                  "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg";
-              }}
             />
           )}
         </div>
@@ -65,11 +66,13 @@ const CardCharacter = ({
 
       <div className="w-full flex flex-col items-center gap-5">
         <MiniCardInfo
+          data-cy="card-character-comics"
           title="Cómics"
           count={character.comics.available}
           loading={loading}
         />
         <MiniCardInfo
+          data-cy="card-character-movies"
           title="Películas"
           count={character.series.available}
           loading={loading}

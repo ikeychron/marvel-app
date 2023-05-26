@@ -8,7 +8,11 @@ const ProgressMovies = () => {
 
   return (
     <div className="w-full h-[1.875rem] bg-[#1E2328] shadow-progressMovies -skew-x-12 p-1 relative">
-      <TextProgressMovies isProductionGoal />
+      <TextProgressMovies
+        data-cy="progress-text-goals"
+        isProductionGoal
+        countMovie={randomGoalMovies}
+      />
       <div className="bg-white w-full h-full border border-black relative">
         <div className="bg-linesProgressMovies w-full h-full z-10 absolute"></div>
         <div
@@ -16,7 +20,11 @@ const ProgressMovies = () => {
           style={{ width: `${porcentage}%` }}
         >
           <div className="w-full h-full relative">
-            <TextProgressMovies isProductionGoal={false} />
+            <TextProgressMovies
+              data-cy="progress-text-produceds"
+              isProductionGoal={false}
+              countMovie={randomProducedMovies}
+            />
           </div>
         </div>
       </div>

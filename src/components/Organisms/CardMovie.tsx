@@ -6,9 +6,10 @@ const CardMovie = ({ movie }: { movie: Movie }) => {
   const isPremiered = new Date(movie.release_date) < new Date(Date.now());
   const goodVotes = movie.vote_average > 5;
   return (
-    <div key={movie.id} className="font-spiegel">
+    <div key={movie.id} className="font-spiegel" data-cy="card-movie">
       <div className="border border-golden-3 rounded-lg relative overflow-hidden">
         <Image
+          data-cy="card-movie-img"
           src={`https://image.tmdb.org/t/p/w500${
             movie.poster_path ?? movie.backdrop_path
           }`}
@@ -26,6 +27,7 @@ const CardMovie = ({ movie }: { movie: Movie }) => {
             }`}
           >
             <p
+              data-cy="card-movie-votes-average"
               className={`text-xs font-medium ${
                 goodVotes ? "text-green-800" : "text-red-800"
               }`}
@@ -39,15 +41,20 @@ const CardMovie = ({ movie }: { movie: Movie }) => {
             isPremiered ? "bg-blue-progress" : "bg-golden-3"
           }`}
         >
-          <p className="text-white text-sm">
+          <p className="text-white text-sm" data-cy="card-movie-is-premiered">
             {isPremiered ? "Estrenada" : "Por estrenar"}
           </p>
         </div>
       </div>
 
       <div className="my-4 w-full items-end flex flex-col">
-        <h1 className="text-golden-1 text-sm font-medium">{movie.title}</h1>
-        <p className="text-golden-1 text-xs">
+        <h1
+          className="text-golden-1 text-sm font-medium"
+          data-cy="card-movie-name"
+        >
+          {movie.title}
+        </h1>
+        <p className="text-golden-1 text-xs" data-cy="card-movie-date">
           {formattedDate(new Date(movie.release_date))}
         </p>
       </div>

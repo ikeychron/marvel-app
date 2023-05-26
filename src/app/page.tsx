@@ -15,7 +15,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <h1 className="text-golden-1 text-3xl mb-6 font-spiegel">
+      <h1 data-cy="title" className="text-golden-1 text-3xl mb-6 font-spiegel">
         Últimas producciones de Marvel
       </h1>
       <ListMovies data={data} />
